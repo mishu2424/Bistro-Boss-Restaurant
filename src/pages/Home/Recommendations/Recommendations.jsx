@@ -15,7 +15,7 @@ const Recommendations = () => {
     setMenu(recommendedItems.slice(0,3));
   };
   return (
-    <div className="max-w-7xl mx-auto my-10">
+    <div className="max-w-7xl mx-auto my-10 space-y-5">
       <Header subheader={"Should Try"} header={"CHEF RECOMMENDS"}></Header>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {menu.map((item) => (
