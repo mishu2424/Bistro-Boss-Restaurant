@@ -1,6 +1,6 @@
 const MenuCard = ({ item }) => {
   return (
-    <div className="flex gap-3">
+    <div className="flex gap-3 text-start">
       <img style={{
         borderRadius:'0 200px 200px 200px'
       }} className="w-32" src={item?.image} alt={item?.name} />
