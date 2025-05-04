@@ -4,6 +4,7 @@ import FeaturedItem from "../FeaturedItem/FeaturedItem";
 import Order from "../Order/Order";
 import PopularItems from "../PopularItems/PopularItems";
 import Recommendations from "../Recommendations/Recommendations";
+import Testimonials from "../Testimonials/Testimonials";
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
             <PopularItems></PopularItems>
             <Recommendations></Recommendations>
             <FeaturedItem></FeaturedItem>
+            <Testimonials></Testimonials>
         </div>
     );
 };
