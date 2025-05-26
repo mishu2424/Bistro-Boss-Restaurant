@@ -1,0 +1,15 @@
+/* Override base tab styles */
+.react-tabs__tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-bottom: 0;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  color: #555;
+}
+
+/* Style the active tab */
+.react-tabs__tab--selected {/* e.g., indigo-600 */
+  color: goldenrod;/* optional */
+}

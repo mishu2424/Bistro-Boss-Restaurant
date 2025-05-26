@@ -1,16 +1,51 @@
+import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
+import useAuth from "../hooks/useAuth";
+import { FaShoppingCart } from "react-icons/fa";
+import useCart from "../hooks/useCart";
+import useAdmin from "../hooks/useAdmin";
 const Navbar = () => {
+  const { user, logOut } = useAuth();
+  const [carts] = useCart();
+  const [isAdmin] = useAdmin();
   const links = (
     <>
       <li>
-        <a>Item 1</a>
+        <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <a>Parent</a>
+        <NavLink to={"/menu"}>Menu</NavLink>
       </li>
       <li>
-        <a>Item 3</a>
+        <NavLink to={"/order"}>Order</NavLink>
       </li>
+      {!user && (
+        <li>
+          <NavLink to={"/auth/login"}>Login</NavLink>
+        </li>
+      )}
+      {user && isAdmin && (
+        <li>
+          <NavLink to={"/dashboard/adminHome"}>Dashboard</NavLink>
+        </li>
+      )}
+      {user && !isAdmin && (
+        <li>
+          <NavLink to={"/dashboard/userHome"}>Dashboard</NavLink>
+        </li>
+      )}
+      {user && (
+        <li>
+          <Link to={isAdmin ? `/dashboard/users` : `/dashboard/cart`}>
+            <div className="bg-transparent text-white flex items-center gap-2">
+              <FaShoppingCart />
+              <div className="badge badge-sm badge-secondary">
+                +{carts.length}
+              </div>
+            </div>
+          </Link>
+        </li>
+      )}
     </>
   );
   return (
@@ -52,7 +87,11 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        {user && (
+          <button className="btn" onClick={logOut}>
+            Log out
+          </button>
+        )}
       </div>
     </div>
   );

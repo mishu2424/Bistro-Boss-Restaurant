@@ -3,7 +3,7 @@ import featuredImg from "../../../assets/home/featured.jpg";
 import './FeaturedItem.css'
 const FeaturedItem = () => {
   return (
-    <div className="px-32 py-28 featured-container bg-cover bg-center">
+    <div className="px-32 py-28 featured-container bg-fixed bg-cover bg-center">
       <div className="space-y-5">
         <Header subheader={"Check it out"} header={"FROM OUR MENU"} color="white"></Header>
         <div className="text-white px-20 max-w-7xl mx-auto flex flex-col md:flex-row justify-center gap-5">
